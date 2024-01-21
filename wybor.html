@@ -1,0 +1,35 @@
+<!-- wybor.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./styles/style2.css">
+    <meta charset="utf-8">
+    <title>VirtuKlawiatura</title>
+    
+    <script src="script.js" defer></script>
+    <script>
+        // Funkcja do przekierowania do strona_glowna.html
+        function goToHomePage() {
+            window.location.href = 'strona_glowna.html';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div onclick="goToHomePage()">
+            <img src="./icons/keyboard-svgrepo-com 1.png">
+            VirtuKlawiatura
+        </div>
+    </header>
+    <main>
+        <div id="litery">
+            Litery<br>
+            <!-- Zmiana id na class -->
+            <div class="lesson_block_litery">Lekcja 1</div>
+            <div class="lesson_block_litery">Lekcja 2</div>
+            <div class="lesson_block_litery">Lekcja 3</div>
+        </div>
+
+    </main>
+</body>
+</html>

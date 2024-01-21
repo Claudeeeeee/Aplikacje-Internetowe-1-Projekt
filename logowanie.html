@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./styles/style2.css">
+    <meta charset="utf-8">
+    <title>VirtuKlawiatura</title>
+    <script>
+        function redirectToHomePage() {
+            window.location.href = "strona_glowna.html";
+        }
+
+        function redirectToLessonPage() {
+            window.location.href = "wybor.html";
+        }
+
+        function redirectToLogin() {
+            window.location.href = "login.html";
+        }
+
+        function redirectToRegistration() {
+            window.location.href = "rejestracja.html";
+        }
+    </script>
+</head>
+<body>
+<header>
+    <img src="./icons/keyboard-svgrepo-com 1.png" onclick="redirectToHomePage()">
+    VirtuKlawiatura
+    <input type="button" value="wybór lekcji" class="header_button" onclick="redirectToLessonPage()">
+</header>
+<main>
+    <h1>nazwa konta</h1>
+    <div id="user">
+        <img src="./icons/Frame.png" class="log_icon">
+        <input type="text" id="usernameInput" class="log_input" placeholder="Podaj nazwę konta">
+    </div>
+    <h1>hasło</h1>
+    <div id="user">
+        <img src="./icons/Frame (1).png">
+        <input type="password" id="passwordInput" class="log_input" placeholder="Podaj hasło">
+    </div><br>
+    <input type="button" value="zaloguj" class="main_button" onclick="loginUser()"><br><br>
+    Zaloguj się za pomocą<br>
+    <img src="./icons/Frame (2).png">
+    <img src="./icons/Frame (3).png">
+    <img src="./icons/Frame (4).png">
+    <img src="./icons/Frame (5).png"><br>
+    Nie masz jeszcze konta?<br>
+    <input type="button" value="zarejestruj się" class="main_button_2" onclick="redirectToRegistration()">
+</main>
+
+<script>
+    function loginUser() {
+        // Pobierz dane z formularza
+        const username = document.getElementById('usernameInput').value;
+        const password = document.getElementById('passwordInput').value;
+
+        // Wyślij dane do serwera PHP
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'login.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);
+                // Tutaj możesz przekierować użytkownika do strony po zalogowaniu
+            }
+        };
+
+        // Przygotuj dane do wysłania
+        const data = `username=${username}&password=${password}`;
+
+        // Wyślij żądanie
+        xhr.send(data);
+    }
+</script>
+</body>
+</html>

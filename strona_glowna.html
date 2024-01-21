@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html{
+            background-image: url("/backgrounds/background-image.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <link rel="stylesheet" href="./styles/style1.css">
+    <meta charset="utf-8">
+    <title>VirtuKlawiatura</title>
+    <script> // PRZYCISKI PRZEJSCIA NA INNE STRONY
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dodaj obsługę zdarzenia kliknięcia w przycisk "wybór lekcji"
+            var wyborButton = document.querySelector(".bottom_right_button");
+            wyborButton.addEventListener("click", function() {
+                window.location.href = 'wybor.html';
+            });
+
+            // Dodaj obsługę zdarzenia kliknięcia w przycisk "start"
+            var startButton = document.querySelector(".main_button");
+            startButton.addEventListener("click", function() {
+                window.location.href = 'lekcja1.html';
+            });
+
+            // Dodaj obsługę zdarzenia kliknięcia w przycisk "login"
+            var loginButton = document.querySelector(".login_button");
+            loginButton.addEventListener("click", function() {
+                window.location.href = 'logowanie.html';
+            });
+
+            // Dodaj obsługę zdarzenia kliknięcia w przycisk "rejestracja"
+            var rejestracjaButton = document.querySelector(".rejestracja_button");
+            rejestracjaButton.addEventListener("click", function() {
+                window.location.href = 'rejestracja.html';
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <img src="./icons/keyboard-svgrepo-com 1.png">
+    VirtuKlawiatura
+    <input type="button" value="rejestracja" class="header_button rejestracja_button">
+    <input type="button" value="login" class="header_button login_button">
+    <hr>
+</header>
+<main>
+    <h1>
+        kurs pisania<br>na klawiaturze
+    </h1>
+    <p>
+        Trenuj pisanie na klawiaturze w serwisie VirtuKlawiatura!<br>
+        Gotowy na podjęcie wyzwania?
+    </p>
+    <input type="button" value="start" class="main_button">
+    <input type="button" value="wybór lekcji" class="bottom_right_button">
+</main>
+</body>
+</html>

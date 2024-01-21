@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./styles/style2.css">
+    <meta charset="utf-8">
+    <title>VirtuKlawiatura</title>
+</head>
+
+<body>
+<header>
+    <a href="strona_glowna.html">
+        <img src="./icons/keyboard-svgrepo-com 1.png">
+        VirtuKlawiatura
+    </a>
+    <a href="wybor.html" class="header_button">wybór lekcji</a>
+</header>
+<main>
+    <h1>imię i nazwisko</h1>
+    <div id="user">
+        <img src="./icons/Frame.png" class="log_icon">
+        <input type="text" id="nameInput" class="log_input" value="Jan Kowalski">
+    </div>
+    <h1>nazwa konta</h1>
+    <div id="user">
+        <img src="./icons/Frame.png" class="log_icon">
+        <input type="text" id="usernameInput" class="log_input" value="Przykładowy_User">
+    </div>
+    <h1>hasło</h1>
+    <div id="user">
+        <img src="./icons/Frame (1).png">
+        <input type="password" id="passwordInput" class="log_input" value="przykładowe hasło">
+    </div>
+    <h1>powtórz hasło</h1>
+    <div id="user">
+        <img src="./icons/Frame (1).png">
+        <input type="password" id="confirmPasswordInput" class="log_input" value="przykładowe hasło">
+    </div><br>
+    <input type="button" value="stwórz konto" class="main_button" onclick="registerUser()"><br>
+    Zaloguj się za pomocą<br>
+    <img src="./icons/Frame (2).png">
+    <img src="./icons/Frame (3).png">
+    <img src="./icons/Frame (4).png">
+    <img src="./icons/Frame (5).png"><br>
+    Masz już konto?<br>
+    <a href="logowanie.html" class="main_button_2">zaloguj</a>
+</main>
+
+<script>
+    function registerUser() {
+        // Pobierz dane z formularza
+        const name = document.getElementById('nameInput').value;
+        const username = document.getElementById('usernameInput').value;
+        const password = document.getElementById('passwordInput').value;
+        const confirmPassword = document.getElementById('confirmPasswordInput').value;
+
+        // Sprawdź, czy hasła są identyczne
+        if (password !== confirmPassword) {
+            alert('Hasła się nie zgadzają!');
+            return;
+        }
+
+        // Wyślij dane do serwera PHP
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'register.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);
+            }
+        };
+
+        // Przygotuj dane do wysłania
+        const data = `username=${username}&password=${password}`;
+
+        // Wyślij żądanie
+        xhr.send(data);
+    }
+
+    function redirectToPage(page) {
+        window.location.href = page;
+    }
+
+    document.querySelector('.header_button').addEventListener('click', function () {
+        redirectToPage('wybor.html');
+    });
+
+    // Dodaj obsługę przycisku "zaloguj"
+    document.querySelector('.main_button_2').addEventListener('click', function () {
+        redirectToPage('logowanie.html');
+    });
+</script>
+</body>
+
+</html>

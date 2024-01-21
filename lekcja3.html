@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./styles/style2.css">
+    <meta charset="utf-8">
+    <title>VirtuKlawiatura</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add event listeners for clicking on the logo and "wybór lekcji" button
+            var logo = document.querySelector("header img");
+            var title = document.querySelector("header h1");
+            var wyborButton = document.querySelector(".header_button");
+
+            logo.addEventListener("click", redirectToHomePage);
+            title.addEventListener("click", redirectToHomePage);
+            wyborButton.addEventListener("click", redirectToLessonPage);
+
+            function redirectToLessonPage() {
+                window.location.href = "wybor.html";
+            }
+            function redirectToHomePage() {
+                window.location.href = 'strona_glowna.html';
+            }
+
+        });
+    </script>
+</head>
+<body>
+<header>
+    <img src="./icons/keyboard-svgrepo-com 1.png">
+    VirtuKlawiatura
+
+    <a href="wybor.html" class="header_button">wybór lekcji</a>
+
+</header>
+<main>
+    <h1>lekcja 3</h1>
+    Macieju wyslij maila na k12@gmail.com!
+    <br>
+
+    <input type="text" id="text-input" readonly>
+
+    <div id="keyboard">
+        <div id="key">TAB</div>
+        <div id="key">Q</div>
+        <div id="key">W</div>
+        <div id="key">E</div>
+        <div id="key">R</div>
+        <div id="key">T</div>
+        <div id="key">Y</div>
+        <div id="key">U</div>
+        <div id="key">I</div>
+        <div id="key">O</div>
+        <div id="key">P</div>
+        <div id="key"><-</div>
+
+        <div id="second_level_key">CAPS</div>
+        <div id="key">A</div>
+        <div id="key">S</div>
+        <div id="key">D</div>
+        <div id="key">F</div>
+        <div id="key">G</div>
+        <div id="key">H</div>
+        <div id="key">J</div>
+        <div id="key">K</div>
+        <div id="key">L</div>
+        <div id="second_level_key">ENTER</div>
+
+        <div id="thrid_level_key">SHIFT</div>
+        <div id="key">Z</div>
+        <div id="key">X</div>
+        <div id="key">C</div>
+        <div id="key">V</div>
+        <div id="key">B</div>
+        <div id="key">N</div>
+        <div id="key">M</div>
+        <div id="key">,</div>
+        <div id="thrid_level_key">SHIFT</div>
+
+        <div id="second_level_key">CTRL</div>
+        <div id="key">Win</div>
+        <div id="key">ALT</div>
+        <div id="spacebar">SPACE</div>
+        <div id="key">ALT</div>
+        <div id="second_level_key">CTRL</div>
+    </div>
+    <div id="result"></div>
+    <script src="lekcjaa3.js" defer></script>
+</main>
+</body>
+</html>
